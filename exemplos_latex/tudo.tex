@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+
+\author{Melissa Weber Mendonça}
+\title{Exemplo de numeração automática\\e outras vantagens do \LaTeX}
+
+\begin{document}
+\maketitle
+
+%\chapter{Introdução}
+
+Aqui, vamos ver exemplos de numeração automática no \LaTeX. 
+
+\section{Primeira seção\label{primeira}}
+
+Esta é a primeira seção. Mais informações na Tabela~\ref{tab:distros}.
+
+\begin{table}
+   \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        Distros & \textbf{Gnome} & \textbf{KDE} \\\hline
+        Ubuntu & X & \\\hline
+        Fedora & X & \\\hline
+        Debian & X & \\\hline
+        OpenSUSE & & X \\\hline
+        Slackware & & X\\\hline
+      \end{tabular}
+   \end{center}
+   \caption{\label{tab:distros}Tabela sobre distribuições Linux e seus ambientes gráficos.}
+\end{table}
+
+%\section{Mais uma!!!}
+
+% \section{Outra seção!}
+
+% Esse texto é novo. Vem da Seção \ref{primeira}.
+
+\section{Segunda seção}
+
+Esta é a segunda seção.
+
+\subsection{Subseção}
+
+Surpresa! Uma subseção.
+
+\end{document}

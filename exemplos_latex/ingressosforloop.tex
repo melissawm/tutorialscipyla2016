@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{forloop}
+
+\oddsidemargin -1.2in
+\topmargin -1in
+\textwidth 20.9cm
+\textheight 29cm
+
+\newcounter{ingresso}
+%\setcounter{ingresso}{1}
+
+\begin{document}
+\pagestyle{empty}
+
+\forloop{ingresso}{1}{\value{ingresso} < 61}
+{
+   \vspace{0.7cm}
+   \begin{minipage}{10cm}
+      \begin{center}
+         \includegraphics[width=5cm]{Tux.png}
+      \end{center}
+   \end{minipage}
+   \begin{minipage}{12cm}
+      \vspace{.45cm}
+      \begin{center}
+         \LARGE{\textsc{Festa do Tux!}}\\
+         \LARGE{\textsc{Minha casa}}\\
+         \LARGE{\textsc{30/02/2014 \quad 16:00h}}\\
+         \textsc{Ingresso N$\ \mbox{}^{\circ}$ \arabic{ingresso}}
+      \end{center}
+      \vspace{.1cm}
+   \end{minipage}
+}
+\end{document}

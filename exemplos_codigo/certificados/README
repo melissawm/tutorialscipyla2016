@@ -1,0 +1,9 @@
+Para rodar este exemplo, primeiramente geramos o banco de dados usando o arquivo math.txt e
+
+$ python building_mathdb.py
+
+e em seguida geramos os certificados para cada nome no banco de dados:
+
+$ python certificados.py
+
+Obs. Para este exemplo, você pode usar a fonte fraktur, como selecionada atualmente (\usepackage{yfonts} - já incluida na distribuição TexLive) ou instalar a fonte HGE http://www.tug.dk/FontCatalogue/hersheyoldenglishfont/ para o LaTeX no Texlive.

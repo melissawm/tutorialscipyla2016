@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{chancery}
+\usepackage{graphicx}
+
+\oddsidemargin -1.2in
+\topmargin -1in
+\textwidth 20.9cm
+\textheight 29cm
+
+\newcounter{ingresso}
+\setcounter{ingresso}{1}
+
+\begin{document}
+\pagestyle{empty}
+
+\loop\ifnum\value{ingresso}<61,
+   \vspace{0.7cm}
+   \begin{minipage}{10cm}
+      \begin{center}
+         \includegraphics[width=5cm]{../img/Tux.png}
+      \end{center}
+   \end{minipage}
+   \begin{minipage}{12cm}
+      \vspace{.45cm}
+      \begin{center}
+         \LARGE{Festa do Tux!}\\
+         \LARGE{Minha casa}\\
+         \LARGE{30/04/2016 \quad 16:00h}\\
+         Ingresso N$\ \mbox{}^{\circ}$ \arabic{ingresso}
+      \end{center}
+      \vspace{.1cm}
+   \end{minipage}
+   \addtocounter{ingresso}{1}
+\repeat
+\end{document}

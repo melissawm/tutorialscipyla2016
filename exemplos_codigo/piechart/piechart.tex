@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{calc}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\title{ Distribuições Linux entre participantes do SciPy-LA 2016 }
+\author{ Melissa }
+\date{  }
+\begin{document}
+\maketitle
+\newcommand{\slice}[5]{\pgfmathparse{0.5*#1+0.5*#2}\let\midangle\pgfmathresult \draw[thick,fill=blue!#5!white] (0,0) -- (#1:1) arc (#1:#2:1) -- cycle; \node[label=\midangle:#4] at (\midangle:1) {}; \pgfmathparse{min((#2-#1-10)/110*(-0.3),0)} \let\temp\pgfmathresult \pgfmathparse{max(\temp,-0.5) + 0.8} \let\innerpos\pgfmathresult \node[rectangle] at (\midangle:\innerpos) {#3};} 
+ \begin{figure}[ht] 
+ \begin{center} 
+ \begin{tikzpicture}[scale=3] 
+ \newcounter{a} \newcounter{b} 
+ \foreach \p/\t in {6/Fedora,5/Gentoo,7/OpenSUSE,16/Slackware,5/Chakra,15/Debian,46/Outros} {\setcounter{a}{\value{b}} \addtocounter{b}{\p} \slice{\thea/100*360} {\theb/100*360} {\p\%}{\t}{\theb} } 
+ \end{tikzpicture} 
+ \end{center} 
+ \caption{Dados recolhidos durante a palestra.} 
+ \end{figure}
+\end{document}

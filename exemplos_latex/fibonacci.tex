@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\newcount \num
+\num=10
+
+\newcount \temp 
+\newcount \fone 
+\newcount \ftwo 
+\newcount \counter
+
+\newcommand{\fibonacci}[1]{
+\counter=#1
+\fone=1
+\ftwo=1
+\temp=0
+\the\fone, \the\ftwo
+\fibloop
+}
+
+\newcommand{\fibloop}{, 
+%
+\let\next=\fibloop
+%
+\temp=\fone
+\fone=\ftwo
+\advance \ftwo by \temp
+\ifnum\counter=3
+\let\next=\relax 
+\else 
+\advance \counter by -1 
+\fi
+\the\ftwo
+\next
+}
+
+\begin{document}
+
+Os \the\num\ primeiros números de Fibonacci são:
+
+\fibonacci{\num}
+
+\end{document}

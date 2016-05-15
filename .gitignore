@@ -1,0 +1,10 @@
+*.log
+*.aux
+*.output
+*.vrb
+*.snm
+*.toc
+*.nav
+*.out
+*.*~
+_*

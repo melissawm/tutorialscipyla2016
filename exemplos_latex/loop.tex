@@ -1,0 +1,13 @@
+\documentclass{article}
+
+% Este loop recursivo cria uma lista de números de #1 até #2.
+\def\foo#1#2{\number#1
+\ifnum#1<#2,
+\foo{\number\numexpr#1+1}{\number#2}
+\fi}
+
+\begin{document}
+
+\foo{2}{8}
+
+\end{document}

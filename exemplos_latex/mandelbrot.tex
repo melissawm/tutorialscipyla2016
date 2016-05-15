@@ -1,0 +1,61 @@
+\newcount \Re \newcount \Im
+\newcount \Zr \newcount \Zi \newcount \Zrr \newcount \Zii \newcount \Ind
+
+\newcommand{\MandIter}{%
+  \divide \Zr by 16 \divide \Zi by 16
+  \Zrr=\Zr \multiply \Zrr by \Zrr \divide \Zrr by 256
+  \Zii=\Zi \multiply \Zii by \Zii \divide \Zii by 256
+  \multiply \Zi by \Zr \divide \Zi by 256
+  \multiply \Zi by 2 \advance \Zi by \Im
+  \Zr=\Zrr \advance \Zr by -\Zii \advance \Zr by \Re
+  \let\next=\MandIter
+  \count4=\Zrr \advance \count4 by \Zii
+  \ifnum \count4>262144 \let\next=\relax \fi
+  \ifnum \Ind=15 \let\next=\relax \else \advance \Ind by 1 \fi
+  \next
+}
+
+\newcommand{\MandLoop}{%
+  \Re=\count0
+  \multiply \Re by 196608 \divide \Re by \count2 \advance \Re by -131072
+  \Im=\count1
+  \multiply \Im by 150000 \divide \Im by \count3 \advance \Im by -75000
+  \Zr=\Re \Zi=\Im \Ind=0
+  \MandIter
+  \ifcase \Ind
+    .\or .\or :\or -\or +\or =\or *\or i\or I%
+    \or H\or O\or X\or M\or \#\or @\or .%
+  \fi
+  \let\next=\MandLoop
+  \advance \count0 by 1
+  \ifnum \count0>\count2
+    \newline
+    \count0=0
+    \advance \count1 by 1
+    \ifnum \count1>\count3
+      \let\next=\relax
+    \fi
+  \fi
+  \next
+}
+
+\newcommand{\Mandel}[2]{
+  \count0=0 \count1=0 \count2=#1 \count3=#2
+  \MandLoop
+}
+
+% Document
+% --------
+\documentclass[a4paper]{article}
+
+\setlength{\parindent}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\topmargin}{0pt}
+
+\begin{document}
+\ttfamily
+\setlength{\baselineskip}{0pt}
+{\small
+ \Mandel{100}{60}
+}
+\end{document}

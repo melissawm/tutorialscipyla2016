@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgf}
+
+\def\nome{João}
+
+\pgfkeys{/pgf/number format/.cd,fixed zerofill,precision=2,use comma}
+\pgfmathsetmacro{\valor}{512}
+\pgfmathsetmacro{\dezporcento}{\valor*0.1}
+\pgfmathsetmacro{\resto}{\valor-\dezporcento}
+
+\begin{document}
+
+\framebox[\textwidth]{\parbox{0.95\textwidth}{
+
+\vspace{1cm}
+\begin{center}
+   \underline{\textsc{Recibo}}
+\end{center}
+\vspace{1cm}
+
+Recebemos de \nome\ a quantia de R\$~\pgfmathprintnumber{\valor} por meio de uma entrada
+de R\$~\pgfmathprintnumber{\dezporcento} em dinheiro e de um cheque pré-datado no valor de 
+R\$~\pgfmathprintnumber{\resto}.
+\vspace{1cm}
+\flushright{Florianópolis, 3 de julho de 2013.}
+\vspace{0.5cm}
+}}
+\end{document}

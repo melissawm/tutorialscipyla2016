@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgf}
+
+\newif\ifbr
+%\brtrue
+
+\begin{document}
+
+\pgfmathdeclarefunction{CtoF}{1}
+{
+   \pgfmathparse{int(ceil(#1*(9/5)+32))}
+}
+
+\ifbr
+A água ferve a 100$^{\circ}$ C. 
+\else
+Water boils at{\pgfmathparse{CtoF(100)}\pgfmathresult} degrees Fahrenheit.
+\fi
+
+\end{document}

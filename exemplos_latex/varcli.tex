@@ -1,0 +1,46 @@
+% compilar este documento com o comando
+% pdflatex '\providecommand{\sendtoprinter}{VALOR}\input{varcli.tex}'
+% em que VALOR é true ou false, dependendo da opção desejada.
+\documentclass[a4,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{ifthen}
+% valor padrão
+\providecommand\sendtoprinter{false}
+
+\title{Testando a linha de comando no \LaTeX}
+\author{Melissa}
+
+\begin{document}
+\maketitle
+
+Neste documento, estamos testando o que acontece quando compilamos nosso arquivo \verb+.tex+ usando argumentos extras na linha de comando.
+
+Vamos mostrar que a Figura~\ref{fig:penelope} só aparece na versão digital. Na versão impressa, temos apenas o \emph{float} correpondente à figura (com referências corretas).
+
+\begin{figure}[!h]
+   \begin{center}
+      \ifthenelse{\equal{\sendtoprinter}{true}}
+      {
+        \framebox[5cm]{ 
+          \raisebox{0pt}[3cm]
+          {
+            \parbox{4cm}
+            {
+              {\footnotesize{Esta é uma figura que só aparecerá na versão impressa.}}
+            } % Fim parbox
+          } % Fim raisebox
+        } % Fim framebox
+      } % Fim If
+      { % Else
+        \includegraphics[width=5cm]{penelope.jpg}
+      } % Fim Else
+      \caption{Foto da minha gata Penélope.\label{fig:penelope}}
+   \end{center}
+\end{figure}
+   
+\end{document}
+
+
+

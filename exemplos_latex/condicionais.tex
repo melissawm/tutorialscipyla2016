@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+% Padrão: false
+\newif\ifbr
+\brtrue
+%
+
+\ifbr
+\usepackage[portuguese]{babel}
+\else
+\fi
+
+\begin{document}
+
+\ifbr
+Vou falar em português: 
+
+\begin{center}
+   Oi, pessoal!
+\end{center}
+\else
+I'm going to speak in english.
+
+\begin{center}
+   Hello, folks!
+\end{center}
+\fi
+
+\end{document}
