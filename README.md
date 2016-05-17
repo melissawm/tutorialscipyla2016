@@ -1,16 +1,16 @@
-autolatex-tutorial
-==================
+Tutorial SciPyLa-2016: Automatizando a criação de PDF's com LaTeX e Python
+==========================================================================
 
-Presentation about automatic PDF generation with Python+LaTeX
+Apresentação e códigos sobre geração automática de PDF's com Python+LaTeX
 
-1. Requirements
+1. Requisitos
 ---------------
 
-All examples have been tested on linux, with python 2.7.11 and pdflatex.
+Todos os exemplos foram testados no Linux, com python 2.7.11 e pdflatex (fornecido pelo TeXLive)
 
-2. Compilation
+2. Compilação
 --------------
 
-To compile the main presentation file, use
+Para compilar o arquivo da apresentação, use o comando
 
-$ pdflatex 
+$ pdflatex -shell-escape tutorial_scipyla.tex
