@@ -13,4 +13,4 @@ All examples have been tested on linux, with python 2.7.11 and pdflatex.
 
 To compile the main presentation file, use
 
-$ pdflatex 
+$ pdflatex -shell-escape tutorial_scipyla.tex
