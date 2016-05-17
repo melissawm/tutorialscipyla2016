@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{palatino}
 \usepackage{subcaption}
+\usepackage{ctable}
 \title{Relatório de Notas de \disciplina\\Semestre \semestre}
 \author{Melissa Weber Mendonça}
 \date{}
@@ -15,9 +16,14 @@
 \maketitle
 \section*{Distribuição de Notas}
 
-Abaixo, uma tabela contendo as notas de \disciplina\ dos alunos da Turma \turma\ no semestre de \semestre.
+Abaixo, a Tabela~\ref{tab:tudo} contendo as notas de \disciplina\ dos alunos da Turma \turma\ no semestre de \semestre.
 
-\begin{table}[!h]
+\begin{table}[h!]
+   \begin{center}
+      %\input{tabelacompleta.tex}
+      \caption{Tabela representando os dados completos.}
+      \label{tab:tudo}
+   \end{center}
 \end{table}
 
 As Figuras~\ref{fig:prova1}, \ref{fig:prova2} e \ref{fig:prova3} representam a distribuição das notas para os \numerodealunos\ alunos desta turma.
@@ -43,5 +49,26 @@ As Figuras~\ref{fig:prova1}, \ref{fig:prova2} e \ref{fig:prova3} representam a d
    \end{subfigure}
    \caption{Distrubuição de notas nas 3 provas.}
 \end{figure}
+
+\subsection*{Aprovados vs. Reprovados}
+
+As Figuras~\ref{fig:aprovados} e \ref{fig:reprovados} mostram as notas dos alunos que terminaram aprovados e reprovados no curso, respectivamente.
+
+\begin{center}
+\begin{figure}[ht]
+   \centering
+   \begin{subfigure}[h]{0.45\textwidth}
+      \includegraphics[width=4cm]{notasaprovados.png}
+      \caption{Notas das 3 provas dos alunos aprovados.}
+      \label{fig:aprovados}
+   \end{subfigure}
+   ~
+   \begin{subfigure}[h]{0.45\textwidth}
+      \includegraphics[width=4cm]{notasreprovados.png}
+      \caption{Notas das 3 provas dos alunos reprovados.}
+      \label{fig:reprovados}
+   \end{subfigure}
+\end{figure}
+\end{center}
 
 \end{document}

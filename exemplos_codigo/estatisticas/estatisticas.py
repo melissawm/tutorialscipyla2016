@@ -35,6 +35,38 @@ def draw_plots(df, show=False):
     if show:
         plt.show()
 
+    # plt.figure(4)
+    # p1 = df.boxplot(0)
+    # p2 = df.boxplot(1)
+    # p3 = df.boxplot(2)
+    # plt.savefig('boxplot.png')
+    # if show:
+    #     plt.show()
+    
+    # Agora, queremos observar a progressão dos alunos em dois gráficos:
+    # Os que foram aprovados e os que foram reprovados
+    mediasfinais = df.mean(axis=1)
+    # aprovados = indices dos alunos que tiveram média maior que 5.75
+    # reprovados = indices dos alunos que tiveram média menor que 5.75
+    aprovados = mediasfinais[mediasfinais>=5.75]
+    reprovados = mediasfinais[mediasfinais<5.75]
+
+    plt.figure(5)
+    for i in range(0,len(aprovados)):
+        plt.plot(df.values[aprovados.index[i]-1,:])
+    plt.savefig('notasaprovados.png')
+    if show:
+        plt.show()
+
+    plt.figure(6)
+    for i in range(0,len(reprovados)):
+        plt.plot(df.values[reprovados.index[i]-1,:])
+    plt.savefig('notasreprovados.png')
+    if show:
+        plt.show()
+
+    return mediasfinais, aprovados, reprovados
+
 def write_texfile(filename, info):
 
     disciplina = info[0]
@@ -59,12 +91,15 @@ if __name__ == '__main__':
     df = pd.read_csv('notas.csv', sep=';', index_col=0)
     df = df.applymap(lambda x: '0' if x in ['-'] else x)
     df = df.applymap(locale.atof)
-
+    
+    # Gerar figuras
     numalunos = len(df.index)
-    draw_plots(df)
+    mediasfinais, aprovados, reprovados = draw_plots(df)
 
+    # Escrever informações sobre a turma
     info = ['Calculo A', '00000', '2016.1', numalunos]
     write_texfile('relatorio.tex', info)
+
     # Compilar e mostrar o pdf resultante.
     latextools.compile('relatorio', 'True', 2)
     latextools.cleanup('relatorio')

@@ -1,0 +1,12 @@
+    # Escrever tabela com os dados completos no arquivo
+    with open('tabelacompleta.tex', 'w') as f:
+        print>>f, "\\begin{tabular}{l c c c c} \\toprule"
+        print>>f, " & ".join(df.columns)+u" & Média Final\\\\\\midrule"
+        for i in range(0,numalunos):
+            linha = " & ".join(np.array2string(df.values[i,:]).strip("[","]"))+mediasfinais[i]+"\\"
+        
+        print >>f, "\\end{tabular}"
+
+
+\begin{tabular}{l c c c c} \toprule
+Prova 1 & Prova 2 & Prova 3 & Média Final\\\midrule
